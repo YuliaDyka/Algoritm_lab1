@@ -8,30 +8,32 @@ h = int(input("Enter H(H >= pils.length): "))
 
 timer = time.time()
 
-# ------------------------- AVL Tree logic -----------------------------
+# ------------------------- RED-BLACK Tree logic -----------------------------
 
-piles = AVL_Tree()
 
-root = None
+p.sort()
+
+piles = RBTree()
 
 for x in p:
-    root = piles.insert(root, x)
+    piles.insert(x)
 
 
 def calculate():
     if len(p) > h:
         return -1
     elif len(p) == h:
-        return piles.get_max(root)
+        return piles.get_max(piles)
     else:
-        return piles.calculate(root, h)
+        return piles.calculate(h)
 
 
-print(calculate())
+print(f"value - {calculate()}")
 
 print("\n------------------ time for test -------------\n")
 
 print(f"time - {time.time() - timer}")
+
 
 
 # ----------------------------- Array logic -----------------------------
@@ -51,27 +53,25 @@ print(f"time - {time.time() - timer}")
 #                 return x
 
 
-# ------------------------- RED-BLACK Tree logic -----------------------------
+# ------------------------- AVL Tree logic -----------------------------
 
+# piles = AVL_Tree()
 
-# p.sort()
-
-# piles = RBTree()
+# root = None
 
 # for x in p:
-#     piles.insert(x)
+#     root = piles.insert(root, x)
 
 
 # def calculate():
 #     if len(p) > h:
 #         return -1
 #     elif len(p) == h:
-#         return piles.get_max(piles)
+#         return piles.get_max(root)
 #     else:
-#         return piles.calculate(h)
+#         return piles.calculate(root, h)
 
-
-# print(f"value - {calculate()}")
+# print(calculate())
 
 # print("\n------------------ time for test -------------\n")
 
