@@ -1,5 +1,6 @@
 import time
 from RBtree import *
+from AVLtree import *
 
 
 p = list(map(int, input("Enter piles: ").split(' ')))
@@ -7,7 +8,35 @@ h = int(input("Enter H(H >= pils.length): "))
 
 timer = time.time()
 
-p.sort()
+# ------------------------- AVL Tree logic -----------------------------
+
+piles = AVL_Tree()
+
+root = None
+
+for x in p:
+    root = piles.insert(root, x)
+
+
+def calculate():
+    if len(p) > h:
+        return -1
+    elif len(p) == h:
+        return piles.get_max(root)
+    else:
+        return piles.calculate(root, h)
+
+
+print(calculate())
+
+print("\n------------------ time for test -------------\n")
+
+print(f"time - {time.time() - timer}")
+
+
+# ----------------------------- Array logic -----------------------------
+
+
 # def calculate():
 #     if len(p) > h:
 #         return -1
@@ -22,23 +51,28 @@ p.sort()
 #                 return x
 
 
-piles = RBTree()
-
-for x in p:
-    piles.insert(x)
+# ------------------------- RED-BLACK Tree logic -----------------------------
 
 
-def calculate():
-    if len(p) > h:
-        return -1
-    elif len(p) == h:
-        return piles.get_max(piles)
-    else:
-        return piles.calculate(h)
+# p.sort()
+
+# piles = RBTree()
+
+# for x in p:
+#     piles.insert(x)
 
 
-print(f"value - {calculate()}")
+# def calculate():
+#     if len(p) > h:
+#         return -1
+#     elif len(p) == h:
+#         return piles.get_max(piles)
+#     else:
+#         return piles.calculate(h)
 
-print("\n------------------ time for test -------------\n")
 
-print(f"time - {time.time() - timer}")
+# print(f"value - {calculate()}")
+
+# print("\n------------------ time for test -------------\n")
+
+# print(f"time - {time.time() - timer}")
