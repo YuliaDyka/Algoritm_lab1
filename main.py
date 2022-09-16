@@ -11,8 +11,6 @@ timer = time.time()
 # ------------------------- RED-BLACK Tree logic -----------------------------
 
 
-p.sort()
-
 piles = RBTree()
 
 for x in p:
@@ -39,6 +37,8 @@ print(f"time - {time.time() - timer}")
 # ----------------------------- Array logic -----------------------------
 
 
+# p.sort()
+# 
 # def calculate():
 #     if len(p) > h:
 #         return -1
